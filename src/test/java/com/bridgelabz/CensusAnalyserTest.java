@@ -28,4 +28,51 @@ public class CensusAnalyserTest {
         Assertions.assertEquals(11, counter, 0);
     }
 
+    //Testcase 1.2
+    @Test
+    void checkForExactNumberOfStatesWithFileException() throws Exception {
+        String path = "C:\\Users\\sunil\\IdeaProjects\\IndianStates_CensusAnalyser\\src\\main\\resources\\IndianstateCensusData.CSV";
+        if (path.equals("C:\\Users\\sunil\\IdeaProjects\\IndianStates_CensusAnalyser\\src\\main\\resources\\IndianstateCensusData.CSV")) {
+            System.out.println("File path is correct!");
+        } else throw new MyException("CSV file path is incorrect");
+    }
+
+    //Testcase 1.3
+    @Test
+    void checkForExactNumberOfStatesWithFileSameTypeException() throws MyException {
+        String path = "C:\\Users\\sunil\\IdeaProjects\\IndianStates_CensusAnalyser\\src\\main\\resources\\IndianstateCensusData.CSV";
+        String fileName = new File(path).getName();
+        int dotIndex = fileName.lastIndexOf('.');
+        if (dotIndex > 0) {
+            String extension = fileName.substring(dotIndex + 1);
+            if (extension.equals(".csv")) {
+                System.out.println("File type is similar");
+            }
+        } else throw new MyException("CSV file path is incorrect");
+    }
+
+    //Testcase 1.4
+    @Test
+    void checkForDelimiterIfIncorrectThrowCustomException() throws MyException {
+        String delimiter = ",";
+        if (delimiter.equals(",")) {
+            System.out.println("Delimiter is correct!");
+        } else throw new MyException("Delimiter is incorrect!");
+    }
+
+    //Testcase 1.5
+    @Test
+    void checkForHeaderIfIncorrectThrowCustomException() throws MyException {
+        String[] header = {"State", " Population", " Area", " Density"};
+        StringBuffer stringBuffer = new StringBuffer();
+        for (int i = 0; i < header.length; i++) {
+            stringBuffer.append(header[i]);
+        }
+        String string = stringBuffer.toString();
+        System.out.println(string);
+
+        if (string.equals("State Population,Area,Density")) {
+            System.out.println("Header is correct");
+        } else throw new MyException("Header is incorrect");
+    }
 }

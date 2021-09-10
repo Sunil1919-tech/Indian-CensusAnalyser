@@ -8,6 +8,7 @@ import java.io.IOException;
 /**
  * purpose-to create Indian States Census Analyser and States Code
  * using CSV file
+ *
  * @author Sunil
  * @version 16.0
  * @since 10/09/2021
@@ -31,7 +32,7 @@ public class StateCensusAnalyser {
         }
     }
 
-    public static void main(String[] args) throws FileNotFoundException{
+    public static void main(String[] args) throws FileNotFoundException {
         System.out.println(" Welcome to Indian State Census Analyser");
 
     }
